@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+
+<!-- Mirrored from localhost/zc/zb_system/login.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Jun 2023 02:17:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="robots" content="none" />
+    <meta name="viewport" content="width=device-width,viewport-fit=cover" />
+    <meta name="generator" content="Z-BlogPHP 1.7.3" />
+    <meta name="renderer" content="webkit" />
+    <link rel="stylesheet" href="css/adminbbe1.css?173230" type="text/css" media="screen" />
+    <script src="script/jquery-latest.minbbe1.js?173230"></script>
+    <script src="script/zblogphpbbe1.js?173230"></script>
+    <script src="script/md5bbe1.js?173230"></script>
+    <script src="script/c_admin_js_add6c7c.js?hash=&amp;173230"></script>
+    <title>我的北极世界-登录</title>
+    <style>
+        .bg { height:100%; background:url(../zb_users/theme/tpure/style/images/banner.jpg) no-repeat center top; background-size:cover; }
+        .logo { width:100%; height:120px; margin:0 auto 40px; padding-top:24px; text-align:center; border-bottom:1px solid #eee; }
+        .logo img { background:none; }
+        #wrapper { width:400px; min-height:350px;height:auto; border-radius:8px; background:#fff; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); }
+        .login { width:auto; }
+        .login input[type="text"], .login input[type="password"] { width:240px; border:1px solid #e4e8eb; outline:0; border-radius:3px; }
+        .login input[type="text"]:focus, .login input[type="password"]:focus { color:#0188fb; background-color:#fff; border-color:#aab7c1; outline:0; box-shadow:0 0 0 0.2rem rgba(31,73,119,0.1); }
+        .login dd.submit, .login dd.password, .login dd.username { width:auto; overflow:visible; }
+        .login dd.checkbox { width:170px; }
+        .login label { padding-right:15px; }
+        .logintitle { font-size:24px; line-height:76px; position:relative; display:inline-block; }
+        .logintitle:before,.logintitle:after { content:""; width:50px; height:0; border-top:1px solid #ddd; position:absolute; top:38px; right:-70px; }
+        .logintitle:before { right:auto; left:-70px; }
+        .button { border-radius:3px; background:#0188fb; }
+        .button:hover { background:#0188fb; }
+        @media only screen and (max-width: 768px){
+            .login dd { float:left; margin-bottom:20px; }
+            .login dd.username label, .login dd.password label { width:100px; text-align:right; }
+            .login dd.checkbox { width:175px; margin-left:95px; padding:0; }
+            .login dd.submit { float:left; padding:0; }
+        }
+        </style>
+        <script>
+        $(function(){
+        function check_is_img(url) {
+            return (url.match(/\.(jpeg|jpg|gif|png)$/) != null)
+        }
+        if(check_is_img("我的北极世界")){
+            $(".logo").find("img").replaceWith('<img src="我的北极世界">').end().wrapInner("<a href='"+bloghost+"'/>");
+        }else{
+            $(".logo").find("img").replaceWith('<span class="logintitle">我的北极世界<span>').end().wrapInner("<a href='"+bloghost+"'/>");
+        }
+        });
+    </script></head>
+<body class="login">
+<div class="bg">
+<div id="wrapper">
+  <div class="logo"><img src="image/admin/none.gif" title="我的北极世界" alt="我的北极世界"/></div>
+  <div class="login">
+    <form method="post" action="#">
+    <dl>
+      <dt></dt>
+      <dd class="username"><label for="edtUserName">用户名</label><input type="text" id="edtUserName" name="edtUserName" size="20" value="" tabindex="1" /></dd>
+      <dd class="password"><label for="edtPassWord">密码</label><input type="password" id="edtPassWord" name="edtPassWord" size="20" tabindex="2" /></dd>
+    </dl>
+    <dl>
+      <dt></dt>
+      <dd class="checkbox"><input type="checkbox" name="chkRemember" id="chkRemember"  tabindex="98" /><label for="chkRemember">保持登录</label></dd>
+      <dd class="submit"><input id="btnPost" name="btnPost" type="submit" value="登录" class="button" tabindex="99"/></dd>
+    </dl>
+    <input type="hidden" name="username" id="username" value="" />
+    <input type="hidden" name="password" id="password" value="" />
+    <input type="hidden" name="savedate" id="savedate" value="1" />
+    </form>
+  </div>
+</div>
+</div>
+<script>
+$("#btnPost").click(function(){
+
+    var strUserName=$("#edtUserName").val();
+    var strPassWord=$("#edtPassWord").val();
+    var strSaveDate=$("#savedate").val()
+
+    if (strUserName=== "" || strPassWord === ""){
+        alert("用户名和密码不能为空");
+        return false;
+    }
+
+    //$("#edtUserName").remove();
+    //$("#edtPassWord").remove();
+    //$("#chkRemember").remove();
+
+    $("form").attr("action","cmd5a10.html?act=verify");
+    $("#username").val(strUserName);
+    $("#password").val(MD5(strPassWord));
+    $("#savedate").val(strSaveDate);
+})
+
+$("#chkRemember").click(function(){
+    $("#savedate").attr("value", $("#chkRemember").prop("checked") == true ? 30 : 1);
+})
+
+</script>
+</body>
+
+<!-- Mirrored from localhost/zc/zb_system/login.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Jun 2023 02:17:26 GMT -->
+</html>
+<!--104.16 ms , 4 queries , 2361kb memory , 0 error-->
